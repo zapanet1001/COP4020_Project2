@@ -11,7 +11,6 @@ import java.lang.Math;
     /** "memory" for our calculator; variable/value pairs go here */
     Map<String, Float> memory = new HashMap<String, Float>();
     Scanner reader = new Scanner(System.in);
-
     float eval(float l, int op, float r) {
         
         switch ( op ) {
@@ -205,7 +204,11 @@ AND : '&&' ;	    //IPadded
 OR : '||';			//IPadded
 NOT : '!' ;			//IPadded
 
+IF : 'if' ;         //statement identifiers
+ELSE : 'else' ;
+WHILE : 'while' ;
 
+VAR :   'var' ;
 ID  :   [a-zA-Z]+ ;      // match identifiers
 FLOAT
     :   INT+ '.' INT
@@ -216,3 +219,4 @@ INT :   [0-9]+ ;         // match integers
 NEWLINE:'\r'? '\n' ;     // return newlines to parser (is end-statement signal)
 WS  :   [ \t]+ -> skip ; // toss out whitespace
 COMMENT: '/*' .*? '*/' -> skip;
+ASSIGN  :   '=' ;
